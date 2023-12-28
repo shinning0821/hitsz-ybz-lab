@@ -32,11 +32,16 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      if (response.hasOwnProperty("image_url")) {
+      if (response.hasOwnProperty("det_url")) {
         // 获取返回的图像URL
-        var imageUrl = response["image_url"];
+        var detUrl = response["det_url"];
+        var semUrl = response["sem_url"];
+        var instUrl = response["inst_url"];
+
         // 在名为 "result-label" 的DOM元素中显示图像
-        el("result-label").innerHTML = `<img src="${imageUrl}" alt="Analyzed Image">`;
+        el("result-label1").innerHTML = `<img src="${detUrl}" alt="Analyzed Image">`;
+        el("result-label2").innerHTML = `<img src="${semUrl}" alt="Analyzed Image">`;
+        el("result-label3").innerHTML = `<img src="${instUrl}" alt="Analyzed Image">`;
       } else if (response.hasOwnProperty("error")) {
         alert("Error: " + response["error"]);
       }

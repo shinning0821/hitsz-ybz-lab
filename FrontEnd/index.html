@@ -396,7 +396,7 @@
           <h2>Online Segmentation</h2>
         </div>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class='upload-label'>
               <label id='upload-label',style="text-align">No file chosen</label>
             </div>
@@ -414,15 +414,35 @@
             </div>
             <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class='result-text'>
-              <label id='result-text',style="text-align">To be analyzed
+              <label id='result-text',style="text-align">Object Detection 
               </label>
             </div>
             <div class='result-label'>
-              <label id='result-label'></label>
+              <label id='result-label1'></label>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class='result-text'>
+              <label id='result-text',style="text-align">Semantic Segmentation 
+              </label>
+            </div>
+            <div class='result-label'>
+              <label id='result-label2'></label>
             </div>
             <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+          </div>
+
+          <div class="col-lg-3">
+            <div class='result-text'>
+              <label id='result-text',style="text-align">Instance Segmentation 
+              </label>
+            </div>
+            <div class='result-label'>
+              <label id='result-label3'></label>
+            </div>
           </div>
         </div>
       </div>
