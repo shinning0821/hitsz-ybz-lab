@@ -1119,8 +1119,15 @@ button.analyze-button {
   color: #ffffff;
 }
 
-.result-label {
+/* .result-label {
   margin-top: 0.5em;
   padding: 10px;
-  font-size: 13px;
+  font-size: 13px;  
+} */
+
+.result-label img {
+  max-width: 200px; /* 设置最大宽度为200像素 */
+  max-height: 200px; /* 设置最大高度为200像素 */
+  object-fit: cover;
+   /* object-fit: cover; 使用cover属性保持图像比例并填充整个容器 */
 }
