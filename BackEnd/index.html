@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CS205 Project-team 17</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/iacs.jpeg" rel="icon">
+  <link href="assets/img/iacs.jpeg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script> -->
+<script src='assets/js/client.js'></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+<script type="text/javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.1.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/hit.png" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">CDSNet(AAAI24)</a></h1>
+        <p style="font-size: 16px; color: #fff; text-align: center;">Ziyue Wang, 2023 Summer</p>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#intro" class="nav-link scrollto"><i class="bi bi-bookmark-heart"></i> 
+            <span>Introduction</span></a></li>
+          <!-- <li><a href="#otsu" class="nav-link scrollto"><i class="bi bi-bar-chart-line"></i>
+            <span>Otsu's Method</span></a></li>
+          <li><a href="#boruvka" class="nav-link scrollto"><i class="bi bi-tree-fill"></i></i> 
+            <span>Boruvka's Method</span></a></li> -->
+          <li><a href="#unet" class="nav-link scrollto"><i class="bi bi-bar-chart-line"></i>
+            <span>Method</span></a></li>
+          <li><a href="#result" class="nav-link scrollto"><i class="bi bi-card-image"></i>
+            <span>Results</span></a></li>
+          <li><a href="#discussion" class="nav-link scrollto"><i class="bi bi-chat-square-text"></i> 
+            <span>Discussion</span></a></li>
+          <li><a href="#features" class="nav-link scrollto"><i class="bi bi-emoji-sunglasses"></i>
+            <span>Features &amp; Challenges</span></a></li>
+          <li><a href="#future" class="nav-link scrollto"><i class="bi bi-cursor-fill"></i>
+            <span>Future Work</span></a></li>
+            <li><a href="#acknowledgement" class="nav-link scrollto"><i class="bi bi-award-fill"></i>
+            <span>Acknowledgements</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Fast and Accurate Image segmentation</h1>
+      <p>for medical image data</p>
+      <a href="https://shinning0821.github.io/index.html">
+      <p style="font-size: 20px;"><i class="bi bi-github"></i> Ziyue Wang, Ye Zhang, Yifeng Wang and Yongbing Zhang<br></p></a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Intro Section ======= -->
+    <section id="intro" class="intro">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Introduction</h2>
+        <p style="line-height:2;">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Nuclei segmentation in WSIs (Whole Slide Images), also known as nuclei instance segmentation, can accurately measure nuclei size and shape, which are phenotypic reflections of underlying genotypic variation and inform relevant decisions in disease treatment and drug design.<br>
+
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp To reduce the annotation burden, we develop CDSNet, a point-supervised nuclei segmentation framework that designs an error rate metric to select appropriate CAM to improve segmentation performance by feature-to-prediction supervision.
+        We also propose a CAM-based contrastive loss to achieve label-to-feature supervision, which leverages CAM to refine feature representations by enhancing the differentiation between nuclei and background features. 
+        This improves its accuracy and benefites the feature-to-prediction supervision.<br><br></p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-3 " data-aos="fade-right">
+            <img src="assets/img/input_exmple.png" class="img-fluid" style="width: 100%;">
+            <p style="font-size: 16px;text-align: center;">image to be segmented</p>
+            <img src="assets/img/output_exmple.png" class="img-fluid" style="width: 100%;">
+            <p style="font-size: 16px;text-align:center">intended segmented result</p>
+          </div>
+          
+
+          <div class="col-lg-7 content justify-content-center" data-aos="fade-left">
+            <br><br><br><br>
+            <h3>CAM: Class Activation Map</h3>
+            <!-- <br>
+            <a class="btn btn-primary" href="https://github.com/CS205-ParallelCV/cs205-FinalProject/blob/main/data.zip" role="button">Download</a>
+            <a href="https://docs.google.com/document/d/1SohOp65ZPpPca_vpxppjKGRW_lIn8A1ifOqFMk6Urr4/edit?usp=sharing"><br>(attached Data Reproduction Documentation)</p>
+            </a></p>
+            <br> -->
+            <img src="assets/img/cam.png" class="img-fluid" style="width: 200%;">
+            <p style="font-size: 16px;text-align: center;">CAM generated by different blocks in ResNet</p>
+
+            <!-- <div class="row">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>670</strong> <span>Training set: different cell types and tissues
+</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>~70</strong> <span>Test set: without ground truth masks</span></li>
+                </ul>
+              </div> -->
+          </div>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-lg-1 pt-4 pt-lg-0 content" data-aos="fade-right"></div>
+          <div class="col-lg-5 pt-4 pt-lg-0 content" data-aos="fade-right">
+          <p>
+            <br><br>"We’ve all seen people suffer from diseases like cancer, heart disease, chronic obstructive pulmonary disease, Alzheimer’s, and diabetes. Many have seen their loved ones pass away. Think how many lives would be transformed if cures came faster. By automating nucleus detection, you could help unlock cures faster—from rare disorders to the common cold. "<br><br>
+          <p>
+          <!-- <a href="https://www.kaggle.com/c/data-science-bowl-2018/overview">
+            -- 2018 Kaggle Data Science Bowl
+          </a> -->
+          </div>
+
+          <div class="col-lg-5" data-aos="fade-left">
+
+            <img src="assets/img/poster.jpeg" class="img-fluid">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Application:  Different Datasets</h2>
+          <p>An offline, compute intensive toolbox for nuclei segmentation<br>
+            <UL>
+              <LI>allows fast nuclei segmentation for new images<br> 
+              <LI>provides three segmentation datasets:</p>
+            </UL>
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-bar-chart-line"></i>
+              <p><strong>CryoNuSeg<br></strong>CryoNuSeg comes from TCGA and is sampled from 10 organ tissues, where each organ consists of 3 images. Therefore, there is a significant variation in the nuclei morphology across different organs. Additionally, nuclei in this dataset are densely packed.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch" >
+            <div class="count-box">
+              <i class="bi bi-tree-fill"></i>
+              <p><strong>ConSeP<br></strong>ConSeP comes from UHCW and is sampled from colon patients, and the nuclei exhibit irregular shapes instead of the typical circular shape. The dataset contains 41 images sized of 1000*1000</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="bi bi-headset"></i>
+              <p><strong>TNBC<br></strong>TNBC comes from Curie Institute, which consists of 50 images from 11 breast cancer patients. The nuclei in this dataset are larger than those in other datasets and are sparsely distributed in space.</p> 
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+   
+    <!-- ======= Unet Section ======= -->
+    <section id="unet" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>CDSNet(CAM-based Dual Supervision Network)</h2>
+
+          <p>CDSNet achieves dual supervision of feature-to-prediction and label-to-feature through CAM, thereby improving segmentation prediction and feature representation. Therefore, using CAM as a bridge, we achieve label-to-feature supervision outside of loss backpropagation, enabling precise nuclei segmentation without generating pseudo masks.<br><br><br></p>
+
+          <div class="row no-gutters">
+
+          <div class="col-lg-11 col-md-11 d-md-flex" >
+              <img src="assets/img/structure.png" class="img-fluid" alt="Responsive image" style="width: 200%;"></img>
+          </div>
+
+          <!-- <div class="col-lg-5 col-md-6 d-md-flex" >
+              <ul>
+              <li>Highly non-linear function mapping each pixel to 0 or 1</li>
+              <li>Huge amount of model  parameters
+                  <ul>
+                    <li>Total params: 1,941,105</li>
+                    <li>Trainable params: 1,941,105</li>
+                  </ul>
+              </li>
+              <li>Learns fast with data augmentation</li><p><br></p>
+              <a type="button" class="btn btn-primary" href="https://docs.google.com/document/d/1Gd_IEz5bSc20O49OVzlAYa1RdxTPwJZMwn-Hq3lUrgc/edit?usp=sharing">Unet's Method: Writeup</a> 
+              <p><br></p>
+              <a type="button" class="btn btn-primary" href="https://github.com/CS205-ParallelCV/cs205-FinalProject/blob/main/unet/README.md">Unet: User's Guide</a>
+              </ul>
+
+          </div> -->
+
+        </div>
+
+        <div class="section-title">
+          
+          <br><br>
+          <h2>Implement Details</Details><br></h2>
+          <dl>
+          <dd>- CPU: </dd>
+          <dd> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intel(R) Core(TM) i5-10400 CPU</dd>
+          <dd> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16 GB RAM 
+</dd>
+          <dd>- GPU accelerated computing</dd>
+             
+          <dd> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Single GPU of NVidia RTX 3090</dd>
+          <!-- <dd> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parallel data augmentation and training -->
+</dd>
+          <!-- <dd>- Storage: Google Cloud Storage bucket</dd>
+          <dd>- Optimization: GPU, Spark</dd> -->
+          <dd>- Language: Python</dd>
+          <dd>- Software: Pytorch</dd>
+          <!-- <dd>- Platform: Google Cloud Platform & AWS </dd> -->
+          <!-- <dd>- Levels of Parallelism: Task level</dd>
+          <dd>- Types of Parallelism: Data parallelism automated by GPU</dd> -->
+
+          </dl>
+      </div>
+
+      </div>
+    </section><!-- End Unet Section -->
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="result" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Results</h2>
+          </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".o">CryoNuSeg</li>
+              <li data-filter=".b">CoNSeP</li>
+              <li data-filter=".u">TNBC</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3 col-md-5 portfolio-item b">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/b2_raw.png" class="img-fluid" alt="Boruvaka's Method: originl image 1"><p style="text-align: center;">image 1</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item b">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/b2.png" class="img-fluid" alt=""><p style="text-align: center;">result 1 - Boruvka</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item b">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/b1_raw.png" class="img-fluid" alt="">
+              <p style="text-align: center;">image 2</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 portfolio-item b">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/b1.png" class="img-fluid" alt=""><p style="text-align: center;">result 2 - Boruvka</p>
+            </div>
+          </div>
+
+        <!-- otsu -->
+
+          <div class="col-lg-3 col-md-5 portfolio-item o">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/o1_raw.png" class="img-fluid" alt="">
+              <p style="text-align: center;">image 3</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item o">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/o1.png" class="img-fluid" alt=""><p style="text-align: center;">result 3 - Otsu</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item o">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/o2_raw.png" class="img-fluid" alt="">
+              <p style="text-align: center;">image 4</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 portfolio-item o">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/o2.png" class="img-fluid" alt=""><p style="text-align: center;">result 4 - Otsu</p>
+            </div>
+          </div>
+
+        <!-- </div> -->
+
+        <!-- unet --> 
+          
+
+          <div class="col-lg-3 col-md-5 portfolio-item u">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/u1_raw.png" class="img-fluid" alt="">
+              <p style="text-align: center;">image 5</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item u">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/u1.png" class="img-fluid" alt="">
+              <p style="text-align: center;">result 5 - Unet</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 portfolio-item u">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/u2_raw.png" class="img-fluid" alt="">
+              <p style="text-align: center;">image 6</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 portfolio-item u">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/u2.png" class="img-fluid" alt="">
+              <p style="text-align: center;">result 6 - Unet</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Unet Section ======= -->
+    <section id="discussion" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Online Segmentation</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class='upload-label'>
+              <label id='upload-label',style="text-align">No file chosen</label>
+            </div>
+            <div>
+              <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+            </div>
+            <br>
+            <div class='no-display'>
+              <input id='file-input'
+                     class='no-display'
+                     type='file'
+                     name='file'
+                     accept='image/*'
+                     onchange='showPicked(this)'>
+            </div>
+            <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+          </div>
+          <div class="col-lg-6">
+            <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+
+          </div>
+        </div>
+      </div>
+    </section><!-- End Unet Section -->
+
+    <!-- ======= Features & Challenges Section ======= -->
+    <section id="features" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Features</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-5 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="bi bi-google"></i></div>
+            <h4 class="title">Google Cloud Platform</h4>
+            <p class="description">We explore creating bucket, lanuching VM instance, installing packages,
+            lanuching cluster on GCP. We think GCP has more detailed documentations compared to 
+          AWS and we enjoy $300 free credits:)</p>
+          </div>
+          
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-chat-left-dots"></i></div>
+            <h4 class="title">Slurm Cluster &amp; MPI</h4>
+            <p class="description">As a cluster workload manager, Slurm provides a framework for starting, executing, and monitoring parallel job on the set of allocated compute nodes. It uses NFS for storage and works well with MPI.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-spellcheck"></i></div>
+            <h4 class="title"><a href="">Python &amp; C++</a></h4>
+            <p class="description">We leverage the strengths of both languages - we use Unet, a well-developed package in Python and also
+            low level language C++ to explore parallelism at more fine-grained level.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-clipboard-data"></i></div>
+            <h4 class="title"><a href="">TensorBoard</a></h4>
+            <p class="description">TensorBoard is a profiling tool that monitors tensorflow-based model training. It provides a very detailed breakdown of how much time is spent in each section as well as the model performance across epochs.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-bezier2"></i></div>
+            <h4 class="title">Graph &amp; Memory</h4>
+            <p class="description">We are working with 256*256 images, which has 65536 pixels. Running MST algorithm on this connected graph with 65536 vertices needs careful design and consideration of how C++ allocates memory.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="bi bi-file-lock2-fill"></i></div>
+            <h4 class="title"><a href="">Data Dependency &amp; lock-free algorithm</a></h4>
+            <p class="description">Union and find algorithm itself has great data dependence and thus is hard to parallelize. We read a paper using the "compare and swap" technique and implement it, which mitigates the problem and uses less locks. </p>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h2>Challenges</h2>
+
+          <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Environment Configuration
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    The first and foremost challenge was the difficulty in Environment configuration. We had to come up with multiple versions of environment configuration, compatible with C++, python, OpenCV, Keras, CMake, MPI, OpenMP, GPU, cluster with SLURM etc. This was a long and tedious process of trouble shooting, path finding, package digging, and we finally came up with detailed setup instructions for each of the different environment configurations. 
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Familiarizing with Google Cloud
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    All four of the team members were completely new to Google Cloud, and we learned how to setup VM instance, SLURM and cluster on Google Cloudwithin the duration of this project. Setting up a cluster for C++ with OpenCV with 8 nodes also took a considerable amount of time to learn and test, during which we wrote our own .sh file for quick installation for the convenience of later users. With UNet, we even did comprehensive testing on both AWS and Google Cloud. 
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Otsu Parallelism Overhead
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    After testing for performance using only algorithm (loop level) parallelism, we were a bit surprised to find that the initial speedup was only 0.5. However, upon analysis we found that this was due to the low intensity in computation which made the overhead large in comparison. This is also because the algorithm consisted of many small parallel subparts, instead of a big one, further exacerbating the overhead. However, after investigating data level parallelism, this actually became a lesson learned for later data parallelism.
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingSix">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      Beruvka Parallelism Race Condition
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                  <div class="card-body">
+                    As we tried to avoid using locks that serialize the program,
+                    we used compare and swap trick. However, at development stage, running the program gave a lot of error messges related to data race: double free() memory, segmentation fault. It was really hard to debug these errors, as behavior of data race is undeterminisitic. We need to figure out 
+                    what part of codes were executed by different threads, in what order, and what would happen.
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                      UNet python multithreading
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+
+                    We spent a considerable amount of time trying to multithread in python with Unet, but the process was challenging due to the following reasons:<br>
+
+                    1. Keras is not thread-safe, so a built-in threading package in python cannot be applied,<br>
+                    2. Keras has a bottleneck in CPU usage due to its image_generator function for data 
+                    augmentation,<br>
+                    3. Multiple dependencies within the existing python packages.<br>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                      UNet python multi-worker training
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    We are highly constrained by GCP’s quota limit on GPU and vCPUs. We are not able to obtain enough resources for distributed training on multiple GPUs. Also, we are not able to test our implementation of the multi-worker training in Spark.
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Future Work Section ======= -->
+    <section id="future" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Future work</h2>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Otsu's Method</h3>
+            <div class="resume-item pb-0">
+              <h4>Split Huge Image</h4>
+              <p>In case we have a huge image, we may parallelize its 
+              segmentation by splitting it into smaller chunks for parallel processing.</p>
+            </div>
+
+            <h3 class="resume-title">Boruvka's Method</h3>
+            <div class="resume-item pb-0">
+              <h4>Feature Aggregation</h4>
+              <p>When looking at some bad outputs produced by Boruvka, we notice that there are some wired vertical lines that should definitely not belong to the place it assigned. We deduct the reason of that happening is that we use fixed weight edges in our program. The weight of edge (between two components) always equals the weight of the edge in the original graph and the color difference between its two endpoints. This infomation is local and error prone! Imagine if we use the color difference between two supernode components to represent edge weight, we get more accurate estimate of color difference between two components and thus will probably get a better and more sensible result.
+              </p>
+            </div>
+
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Unet</h3>
+            <div class="resume-item">
+              <h4>Multi-GPU instance</h4>
+              <p>Currently, we are constrained to a single-instance GPU on Google Cloud due to its quota limit. If we are able to obtain more GPU instances, we hope to train the network on multi-GPU with the built-in methods by Keras for distributed model training.</p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Multi-worker Spark Cluster</h4>
+              <p>We attempted to use Elephas and PySpark for distributed training on a cluster of CPU workers, but perhaps due to the large number of parameters, we kept running into memory error on spark. We may further investigate the reason why it fails.</p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Data parallelism during inference step</h4>
+              <p>In prediction when there is a large number of test images, we should explore data
+              parallelism such that a pretrained model can be applied to multiple test images concurrently to segment the nuclei and efficiently saves the results.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="acknowledgement" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><i class="bi bi-award"></i> Acknowledgements</h2>
+          <h5>Special thanks to Dr.Sondak and all CS205 TFs! Thank you for the semester! </h5>
+          <p style="font-size: 16px;"> <br>[1] Sun Chung and A. Condon, "Parallel implementation of Bouvka's minimum spanning tree algorithm," Proceedings of International Conference on Parallel Processing, 1996, pp. 302-308, doi: 10.1109/IPPS.1996.508073. <br><br>
+
+          [2] A. Mariano, A. Proenca and C. Da Silva Sousa, "A Generic and Highly Efficient Parallel Variant of Boruvka's Algorithm," 2015 23rd Euromicro International Conference on Parallel, Distributed, and Network-Based Processing, 2015, pp. 610-617, doi: 10.1109/PDP.2015.72.<br><br>
+
+          [3] Tepper, Mariano & Mejail, Marta & Musé, Pablo & Almansa, Andrés. (2011). "Boruvka Meets Nearest Neighbors". 8259. 10.1007/978-3-642-41827-3_70. <br><br>
+
+          [4] X. Wei, Q. Yang, Y. Gong, N. Ahuja and M. Yang, "Superpixel Hierarchy," in IEEE Transactions on Image Processing, vol. 27, no. 10, pp. 4838-4849, Oct. 2018, doi: 10.1109/TIP.2018.2836300.<br><br>
+
+          [5] Richard J. Anderson and Heather Woll. 1991. "Wait-free parallel algorithms for the union-find problem," in Proceedings of the twenty-third annual ACM symposium on Theory of Computing (STOC '91). Association for Computing Machinery, New York, NY, USA, 370–380. doi:https://doi.org/10.1145/103418.103458<br><br>
+
+          [6] Win KY, Choomchuay S, Hamamoto K, Raveesunthornkiat M. Comparative Study on Automated Cell Nuclei Segmentation Methods for Cytology Pleural Effusion Images. J Healthc Eng. 2018;2018:9240389. Published 2018 Sep 12. doi:10.1155/2018/9240389<br><br>
+
+          [7] Long, F. Microscopy cell nuclei segmentation with enhanced U-Net. BMC Bioinformatics 21, 8 (2020). https://doi.org/10.1186/s12859-019-3332-1<br><br>
+
+          [8] Zhu, Wentao, Zhao, Can, et al. LAMP: Large Deep Nets with Automated Model Parallelism for Image Segmentation. 2020. https://arxiv.org/pdf/2006.12575.pdf
+
+          </p>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Ziyue Wang</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
