@@ -65,9 +65,17 @@ def seg_single_img(cfg, ckpt, score_threshold,image):
     transforms = build_transforms(is_train=False)
     images = transforms(image)[0].unsqueeze(0)
     results = model(images.to(device))
+
     boxes = results[0][0].bbox.to(cpu_device).numpy()
     labels = results[0][0].get_field("labels").to(cpu_device).numpy()
     scores = results[0][0].get_field("scores").to(cpu_device).numpy()
+    
+
+    maskpred = torch.sigmoid(results[1][0])
+    maskpred = F.interpolate(maskpred, scale_factor=2)
+    maskpred = torch.argmax(maskpred,dim=1)
+    maskpred = maskpred.float().squeeze(0).squeeze(0)
+    maskpred = maskpred.data.cpu().numpy().astype(np.uint8)
 
     indices = scores > score_threshold
     boxes = boxes[indices]
@@ -76,6 +84,10 @@ def seg_single_img(cfg, ckpt, score_threshold,image):
 
     color1 = (0, 255, 0)  # 这里是绿色
     color2=  (255, 0, 0)  # 这里是红色
+
+    dets = np.hstack((boxes, scores[:, np.newaxis])).astype(np.float32, copy=False)
+    inst_map = gen_inst_map(dets,maskpred)
+    maskpred[maskpred==1] = 255
 
     draw_img = image.copy()
 
@@ -101,18 +113,9 @@ def seg_single_img(cfg, ckpt, score_threshold,image):
 
         # # 绘制文本
         # cv2.putText(draw_img, label, (text_x, text_y), font, font_scale, font_color, font_thickness)
-        
 
-    print("222")
-    # maskpred = torch.sigmoid(results[1][0])
-    # maskpred = F.interpolate(maskpred, scale_factor=2)
-    # maskpred = torch.argmax(maskpred,dim=1)
-    # maskpred = maskpred.float().squeeze(0).squeeze(0)
-    # maskpred = maskpred.data.cpu().numpy().astype(np.uint8)
-    # dets = np.hstack((boxes, scores[:, np.newaxis])).astype(np.float32, copy=False)
-    # inst_map = gen_inst_map(dets,maskpred)
     draw_img = cv2.cvtColor(draw_img, cv2.COLOR_RGB2BGR)
-    return draw_img
+    return draw_img, maskpred, inst_map
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -123,26 +126,39 @@ def analyze():
             input_image = np.array(Image.open(file).convert('RGB'))
             # 预处理图像
             # 将输出转换为图像
-            mask_img = seg_single_img(cfg, ckpt=args.ckpt, score_threshold=0.4,image=input_image)
-
-            output_image = np.zeros_like(input_image)
-
-            # # 遍历实例分割结果图像
-            # for i in range(len(np.unique(mask_img))):  # 假设实例ID的范围是0-9
-            #     # 为当前实例ID生成随机颜色
-            #     color = tuple(np.random.randint(0, 256, size=3).tolist())
-            #     # color = (0,49,83)
-            #     # 根据实例ID绘制对应的颜色
-            #     output_image[mask_img == i] = color
-            # output_image[mask_img == 0] = 0
+            result = seg_single_img(cfg, ckpt=args.ckpt, score_threshold=0.4,image=input_image)
             
-            output_image = mask_img
+            det_image = result[0]
+            sem_image = result[1]
+            inst_map = result[2]
+
+            inst_image = np.zeros(input_image.shape)
+            # 遍历实例分割结果图像
+            for i in range(len(np.unique(inst_map))):  # 假设实例ID的范围是0-9
+                # 为当前实例ID生成随机颜色
+                color = tuple(np.random.randint(0, 256, size=3).tolist())
+                # color = (0,49,83)
+                # 根据实例ID绘制对应的颜色
+                inst_image[inst_map == i] = color
+            inst_image[inst_map == 0] = 0
+            
             os.makedirs("results", exist_ok=True)
-            output_path = os.path.join("results", file.filename)
-            cv2.imwrite(output_path, output_image)
+
+            output_path = os.path.join("results", 'det'+ file.filename)
+            cv2.imwrite(output_path, det_image)
+
+            output_path = os.path.join("results", 'sem'+ file.filename)
+            cv2.imwrite(output_path, sem_image)
+
+            output_path = os.path.join("results", 'inst'+ file.filename)
+            cv2.imwrite(output_path, inst_image)
             
             # 返回图像的URL
-            return jsonify({"image_url": request.url_root + "results/" + file.filename})
+            return jsonify({
+                "det_url": request.url_root + "results/" + 'det'+ file.filename,
+                "sem_url": request.url_root + "results/" + 'sem'+ file.filename,
+                "inst_url": request.url_root + "results/" + 'inst'+ file.filename
+                })
             
         else:
             return jsonify({"error": "No file uploaded"})
