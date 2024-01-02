@@ -16,20 +16,35 @@ function showPicked(input) {
 
 function analyze() {
   var uploadFiles = el("file-input").files;
-  if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
+  if (uploadFiles.length !== 1) {
+    alert("Please select a file to analyze!");
+    return; // 停止执行
+  }
 
   el("analyze-button").innerHTML = "Analyzing...";
   var xhr = new XMLHttpRequest();
-  var loc = window.location;
-  xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
-    true);
+  var url = "http://127.0.0.1:5000/analyze"
+  xhr.open("POST", url, true);
   xhr.onerror = function() {
     alert(xhr.responseText);
   };
+  
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `<img src="${response}">`;
+      if (response.hasOwnProperty("det_url")) {
+        // 获取返回的图像URL
+        var detUrl = response["det_url"];
+        var semUrl = response["sem_url"];
+        var instUrl = response["inst_url"];
+
+        // 在名为 "result-label" 的DOM元素中显示图像
+        el("result-label1").innerHTML = `<img src="${detUrl}" alt="Analyzed Image">`;
+        el("result-label2").innerHTML = `<img src="${semUrl}" alt="Analyzed Image">`;
+        el("result-label3").innerHTML = `<img src="${instUrl}" alt="Analyzed Image">`;
+      } else if (response.hasOwnProperty("error")) {
+        alert("Error: " + response["error"]);
+      }
     }
     el("analyze-button").innerHTML = "Analyze";
   };
@@ -38,4 +53,10 @@ function analyze() {
   fileData.append("file", uploadFiles[0]);
   xhr.send(fileData);
 }
+
+// 辅助函数，简化获取DOM元素的操作
+function el(id) {
+  return document.getElementById(id);
+}
+
 
